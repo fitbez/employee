@@ -12,4 +12,5 @@ const styleHeader = {
   color: "#333",
   padding: "5px 0",
 };
+
 export default Header;

@@ -1,18 +1,26 @@
 import React from "react";
-import Person from "./person-one.jpeg";
+import "./employeeListItem.css";
 
-function EmployeeListItem() {
+function EmployeeListItem(props) {
   return (
     <div>
       <div className="container" style={styleEmployeeListItem}>
         <div>
           {" "}
-          <img style={styleEmployeeListImage} src={Person} alt="person Image" />
+          <img
+            style={styleEmployeeListImage}
+            src={props.employee.photo}
+            alt="person Image"
+          />
         </div>
 
         <div style={styleContent}>
-          <p style={styleP}>James King</p>
-          <p style={styleP}>President and CEO</p>
+          <p className="para-one" style={styleP}>
+            {props.employee.name}
+          </p>
+          <p className="para-two" style={styleP}>
+            {props.employee.postion}
+          </p>
         </div>
       </div>
     </div>
@@ -28,7 +36,7 @@ const styleEmployeeListImage = {
 
 const styleEmployeeListItem = {
   display: "flex",
-  justifyContent: "center",
+  justifyContent: "flex-start",
   alignItems: "center",
   backgroundColor: "#ffffff",
   width: "100%",
@@ -47,4 +55,5 @@ const styleP = {
   padding: "0",
   margin: "0",
 };
+
 export default EmployeeListItem;
