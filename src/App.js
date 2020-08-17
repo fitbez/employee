@@ -35,12 +35,30 @@ class App extends Component {
     ],
   };
 
+  handleEmployee = () => {
+    this.state.employee.push({
+      id: 5,
+      name: "Adil Hassen",
+      photo: require("./components/person-three.jpeg"),
+      postion: "STO",
+    });
+    this.setState({
+      employee: [...this.state.employee],
+    });
+  };
+
   render() {
     return (
       <div className="App" style={styleApp}>
         <Header />
         <SearchBar />
         <EmployeeList employee={this.state.employee} />
+        <input
+          onClick={this.handleEmployee}
+          style={styleButton}
+          type="button"
+          value="Add Employee"
+        />
       </div>
     );
   }
@@ -53,8 +71,19 @@ const styleApp = {
   alignItem: "center",
   width: "30%",
   backgroundColor: "#f4f4f4",
-  margin: "30px 0 0 20px",
+  margin: "30px 0 0 80px",
   padding: "0 10px",
+};
+
+const styleButton = {
+  width: "150px",
+  padding: "15px 20px",
+  color: "#fff",
+  backgroundColor: "#333",
+  margin: "10px 0",
+  border: "none",
+  borderRadius: "5px",
+  cursor: "pointer",
 };
 
 export default App;
